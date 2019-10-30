@@ -20,12 +20,7 @@ pub fn escape(input: String) -> String {
 ruby! {
     class RailsJSONGemEncoder {
         def escape(input: String) -> String {
-            let mut result = input.clone();
-            for escape in &JSON_ESCAPE {
-                result = result.replace(escape.0, escape.1)
-            }
-
-            result
+            escape(input)
         }
     }
 }
