@@ -15,6 +15,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    benchmark-ips (2.7.2)
     minitest (5.12.2)
     rake (13.0.0)
     thor (0.20.3)
@@ -24,6 +25,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  benchmark-ips
   bundler
   helix_runtime!
   minitest
