@@ -9,5 +9,4 @@ crate-type = ["cdylib"]
 
 [dependencies]
 helix = { git = "https://github.com/tildeio/helix.git", rev = "dee30aa4fde64cba8e8e2cc7799e6f536578e38a" }
-regex = "1"
 phf = { version = "0.8", features = ["macros"] }
