@@ -4,8 +4,11 @@ extern crate helix;
 use phf::phf_map;
 
 static JSON_ESCAPE: phf::Map<&'static str, &'static str> = phf_map! {
-    ">" => "\\u003e",
-    "<" => "\\u003c",
+    "\u{2028}" => r"\\u2028",
+    "\u{2029}" => r"\\u2029",
+    ">"       => r"\u003e",
+    "<"       => r"\u003c",
+    "&"       => r"\u0026",
 };
 
 pub fn escape(input: String) -> String {
@@ -31,7 +34,7 @@ mod tests {
 
     #[test]
     fn contains_special_chars() {
-        let input = "this is the <string>";
-        assert_eq!(escape(input.to_string()), "this is the \\u003cstring\\u003e");
+        let input = "this is the <string> & \u{2028} \u{2029}";
+        assert_eq!(escape(input.to_string()), "this is the \\u003cstring\\u003e \\u0026 \\\\u2028 \\\\u2029");
     }
 }
