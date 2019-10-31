@@ -2,6 +2,8 @@
 
 require "bundler/setup"
 require "rails_json_gem_encoder"
+require "active_support"
+require "byebug"
 
 require "irb"
 IRB.start(__FILE__)

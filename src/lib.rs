@@ -21,7 +21,7 @@ pub fn escape(input: String) -> String {
 }
 
 ruby! {
-    class RailsJSONGemEncoder {
+    class JSONEscaper {
         def escape(input: String) -> String {
             escape(input)
         }
