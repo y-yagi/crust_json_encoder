@@ -21,4 +21,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "benchmark-ips"
   spec.add_development_dependency "byebug"
+  spec.add_development_dependency "activerecord"
+  spec.add_development_dependency "sqlite3"
 end

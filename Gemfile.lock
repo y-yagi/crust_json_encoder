@@ -16,6 +16,11 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    activemodel (6.0.0)
+      activesupport (= 6.0.0)
+    activerecord (6.0.0)
+      activemodel (= 6.0.0)
+      activesupport (= 6.0.0)
     activesupport (6.0.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
@@ -29,6 +34,7 @@ GEM
       concurrent-ruby (~> 1.0)
     minitest (5.12.2)
     rake (13.0.0)
+    sqlite3 (1.4.1)
     thor (0.20.3)
     thread_safe (0.3.6)
     tomlrb (1.2.8)
@@ -40,6 +46,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord
   benchmark-ips
   bundler
   byebug
@@ -47,6 +54,7 @@ DEPENDENCIES
   minitest
   rails_json_gem_encoder!
   rake
+  sqlite3
 
 BUNDLED WITH
    2.1.0.pre.2
