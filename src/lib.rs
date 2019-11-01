@@ -19,10 +19,10 @@ methods!(
     _itself,
 
     fn escape(input: RString) -> RString {
-       let mut result = input.
-          map_err(|e| VM::raise_ex(e) ).
-          unwrap().
-          to_string();
+        let mut result = input.
+           map_err(|e| VM::raise_ex(e) ).
+           unwrap().
+           to_string();
 
         for escape in &JSON_ESCAPE {
             if result.contains(escape.0) {
@@ -36,7 +36,7 @@ methods!(
 
 #[allow(non_snake_case)]
 #[no_mangle]
-pub extern "C" fn Init_rails_json_gem_encoder() {
+pub extern "C" fn Init_native() {
     Class::new("JSONEscaper", None).define(|itself| {
         itself.def_self("escape", escape);
     });

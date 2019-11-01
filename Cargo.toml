@@ -5,6 +5,7 @@ authors = ["y-yagi <yuuji.yaginuma@gmail.com>"]
 edition = "2018"
 
 [lib]
+name = "native"
 crate-type = ["cdylib"]
 
 [dependencies]

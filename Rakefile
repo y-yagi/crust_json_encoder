@@ -11,7 +11,6 @@ end
 
 task :build_lib do
   system("cargo build --release", exception: true)
-  system("cp -p target/release/librails_json_gem_encoder.so lib/rails_json_gem_encoder/rails_json_gem_encoder.so", exception: true)
 end
 
 task :default => :test
