@@ -1,9 +1,11 @@
-require "helix_runtime"
-require "rails_json_gem_encoder/native"
+require "rutie"
+require "rails_json_gem_encoder/rails_json_gem_encoder"
 require "active_support"
 require "active_support/json/encoding"
 
 class RailsJSONGemEncoder < ActiveSupport::JSON::Encoding::JSONGemEncoder
+  Rutie.new(:rails_json_gem_encoder).init "Init_rails_json_gem_encoder", __dir__
+
   private
 
   class EscapedString < String

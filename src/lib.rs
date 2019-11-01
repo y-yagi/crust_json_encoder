@@ -1,6 +1,7 @@
 #[macro_use]
-extern crate helix;
+extern crate rutie;
 
+use rutie::{Class, Object, RString, VM};
 use phf::phf_map;
 
 static JSON_ESCAPE: phf::Map<&'static str, &'static str> = phf_map! {
@@ -11,20 +12,34 @@ static JSON_ESCAPE: phf::Map<&'static str, &'static str> = phf_map! {
     "&"       => r"\u0026",
 };
 
-pub fn escape(mut input: String) -> String {
-    for escape in &JSON_ESCAPE {
-        input = input.replace(escape.0, escape.1)
-    }
+class!(JSONEscaper);
 
-    input
-}
+methods!(
+    JSONEscaper,
+    _itself,
 
-ruby! {
-    class JSONEscaper {
-        def escape(input: String) -> String {
-            escape(input)
+    fn escape(input: RString) -> RString {
+       let mut result = input.
+          map_err(|e| VM::raise_ex(e) ).
+          unwrap().
+          to_string();
+
+        for escape in &JSON_ESCAPE {
+            if result.contains(escape.0) {
+                result = result.replace(escape.0, escape.1)
+            }
         }
+
+        RString::new_utf8(&result)
     }
+);
+
+#[allow(non_snake_case)]
+#[no_mangle]
+pub extern "C" fn Init_rails_json_gem_encoder() {
+    Class::new("JSONEscaper", None).define(|itself| {
+        itself.def_self("escape", escape);
+    });
 }
 
 #[cfg(test)]
