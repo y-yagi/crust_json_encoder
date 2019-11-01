@@ -1,8 +1,5 @@
 require "bundler/gem_tasks"
-require 'helix_runtime/build_task'
 require "rake/testtask"
-
-HelixRuntime::BuildTask.new
 
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"
@@ -12,5 +9,10 @@ Rake::TestTask.new(:test) do |t|
   t.warning = true
 end
 
+task :build_lib do
+  system("cargo build --release", exception: true)
+  system("cp -p target/release/librails_json_gem_encoder.so lib/rails_json_gem_encoder/rails_json_gem_encoder.so", exception: true)
+end
+
 task :default => :test
-task :test => [:build]
+task :test => [:build_lib]
