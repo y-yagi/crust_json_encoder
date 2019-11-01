@@ -11,13 +11,12 @@ static JSON_ESCAPE: phf::Map<&'static str, &'static str> = phf_map! {
     "&"       => r"\u0026",
 };
 
-pub fn escape(input: String) -> String {
-    let mut result = input.clone();
+pub fn escape(mut input: String) -> String {
     for escape in &JSON_ESCAPE {
-        result = result.replace(escape.0, escape.1)
+        input = input.replace(escape.0, escape.1)
     }
 
-    result
+    input
 }
 
 ruby! {
