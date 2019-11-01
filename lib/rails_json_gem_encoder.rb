@@ -1,6 +1,6 @@
 require "rutie"
 require "active_support"
-require "active_support/json/encoding"
+require "active_support/json"
 
 class RailsJSONGemEncoder < ActiveSupport::JSON::Encoding::JSONGemEncoder
   Rutie.new(:native).init "Init_native", __dir__
