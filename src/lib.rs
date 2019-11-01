@@ -25,7 +25,9 @@ methods!(
           to_string();
 
         for escape in &JSON_ESCAPE {
-            result = result.replace(escape.0, escape.1)
+            if result.contains(escape.0) {
+                result = result.replace(escape.0, escape.1)
+            }
         }
 
         RString::new_utf8(&result)
