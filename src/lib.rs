@@ -1,8 +1,8 @@
 #[macro_use]
 extern crate rutie;
 
-use rutie::{Class, Object, RString, VM};
 use phf::phf_map;
+use rutie::{Class, Object, RString, VM};
 
 static JSON_ESCAPE: phf::Map<&'static str, &'static str> = phf_map! {
     "\u{2028}" => r"\u2028",
@@ -17,12 +17,8 @@ class!(JSONEscaper);
 methods!(
     JSONEscaper,
     _itself,
-
     fn escape(input: RString) -> RString {
-        let mut result = input.
-           map_err(|e| VM::raise_ex(e) ).
-           unwrap().
-           to_string();
+        let mut result = input.map_err(|e| VM::raise_ex(e)).unwrap().to_string();
 
         for escape in &JSON_ESCAPE {
             if result.contains(escape.0) {
@@ -49,6 +45,9 @@ mod tests {
     #[test]
     fn contains_special_chars() {
         let input = "this is the <string> & \u{2028} \u{2029}";
-        assert_eq!(escape(input.to_string()), "this is the \\u003cstring\\u003e \\u0026 \\u2028 \\u2029");
+        assert_eq!(
+            escape(input.to_string()),
+            "this is the \\u003cstring\\u003e \\u0026 \\u2028 \\u2029"
+        );
     }
 }
