@@ -24,5 +24,8 @@ jobs:
         profile: minimal
         toolchain: stable
         override: true
+    - name: Debug
+      run: |
+        ruby -e "pp RbConfig::CONFIG['ENABLE_SHARED']"
     - name: Run test
       run: bundle exec rake
