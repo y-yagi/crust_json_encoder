@@ -6,4 +6,6 @@ require "active_support"
 require "byebug"
 
 require "irb"
+
+ActiveSupport::JSON::Encoding.json_encoder = RailsJSONGemEncoder
 IRB.start(__FILE__)
