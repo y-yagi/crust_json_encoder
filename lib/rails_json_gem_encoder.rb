@@ -7,17 +7,11 @@ class RailsJSONGemEncoder < ActiveSupport::JSON::Encoding::JSONGemEncoder
 
   private
 
-  class EscapedString < String
-    def to_json(*)
-      JSONEscaper.escape(super)
-    end
-
-    def to_s
-      self
-    end
+  def jsonify(value)
+    value.is_a?(String) ? value : super
   end
 
-  def jsonify(value)
-    value.is_a?(String) ? EscapedString.new(value) : super
+  def stringify(jsonified)
+    jsonified.is_a?(String) ? JSONEscaper.escape(super) : super
   end
 end
