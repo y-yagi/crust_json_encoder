@@ -13,5 +13,9 @@ task :build_lib do
   system("cargo build --release", exception: true)
 end
 
+task performance: :build_lib do
+  system("bundle exec ruby performance/benchmark.rb", exception: true)
+end
+
 task :default => :test
 task :test => [:build_lib]
