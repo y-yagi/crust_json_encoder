@@ -11,3 +11,4 @@ crate-type = ["cdylib"]
 [dependencies]
 rutie = "0.7.0"
 phf = { version = "0.8", features = ["macros"] }
+serde_json = "1.0"

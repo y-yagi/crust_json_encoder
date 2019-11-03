@@ -19,6 +19,7 @@ methods!(
     _itself,
     fn escape(input: RString) -> RString {
         let mut result = input.map_err(|e| VM::raise_ex(e)).unwrap().to_string();
+        result = serde_json::to_string(&result).unwrap();
 
         for escape in &JSON_ESCAPE {
             if result.contains(escape.0) {

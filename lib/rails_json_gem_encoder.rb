@@ -12,6 +12,6 @@ class RailsJSONGemEncoder < ActiveSupport::JSON::Encoding::JSONGemEncoder
   end
 
   def stringify(jsonified)
-    jsonified.is_a?(String) ? JSONEscaper.escape(super) : super
+    jsonified.is_a?(String) ? JSONEscaper.escape(jsonified) : super
   end
 end
