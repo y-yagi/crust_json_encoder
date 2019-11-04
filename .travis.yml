@@ -18,6 +18,16 @@ env:
 before_install:
 - curl -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable
 - gem install bundler
+matrix:
+  include:
+  - os: linux
+    rvm: 2.5.6
+    if: tag =~ ^v0
+    env:
+  - os: linux
+    rvm: 2.6.4
+    if: tag =~ ^v0
+    env:
 deploy:
   provider: releases
   api_key:
