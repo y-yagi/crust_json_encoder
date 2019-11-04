@@ -6,8 +6,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Yuji Yaginuma"]
   spec.email         = ["yuuji.yaginuma@gmail.com"]
   spec.version       = "0.0.1"
+  spec.homepage      = "https://github.com/y-yagi/rails_json_gem_encoder"
 
-  spec.summary       = %q{summary}
+  spec.summary       = %q{RailsJSONGemEncoder is a patch of Rails's JSON encoder for better performance.}
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
