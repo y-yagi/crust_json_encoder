@@ -20,14 +20,10 @@ before_install:
 - gem install bundler
 matrix:
   include:
-  - os: linux
-    rvm: 2.5.6
-    if: tag =~ ^v0
-    env:
-  - os: linux
-    rvm: 2.6.4
-    if: tag =~ ^v0
-    env:
+  - os: osx
+    rvm: 2.5.5
+  - os: osx
+    rvm: 2.6.3
 deploy:
   provider: releases
   api_key:
