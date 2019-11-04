@@ -1,5 +1,5 @@
 [package]
-name = "rails_json_gem_encoder"
+name = "crust_json_encoder"
 version = "0.0.1"
 authors = ["y-yagi <yuuji.yaginuma@gmail.com>"]
 edition = "2018"

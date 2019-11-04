@@ -1,11 +1,11 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "rails_json_gem_encoder"
+require "crust_json_encoder"
 require "active_support"
 require "byebug"
 
 require "irb"
 
-ActiveSupport::JSON::Encoding.json_encoder = RailsJSONGemEncoder
+ActiveSupport::JSON::Encoding.json_encoder = CrustJSONEncoder
 IRB.start(__FILE__)

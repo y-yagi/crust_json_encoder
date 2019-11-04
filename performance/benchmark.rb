@@ -1,5 +1,5 @@
 require "bundler/inline"
-require "rails_json_gem_encoder"
+require "crust_json_encoder"
 require "benchmark/ips"
 require "active_record"
 
@@ -26,8 +26,8 @@ Benchmark.ips do |x|
     ActiveSupport::JSON.encode(string)
   end
 
-  x.report("RailsJSONGemEncoder String") do
-    ActiveSupport::JSON::Encoding.json_encoder = RailsJSONGemEncoder
+  x.report("CrustJSONEncoder String") do
+    ActiveSupport::JSON::Encoding.json_encoder = CrustJSONEncoder
     ActiveSupport::JSON.encode(string)
   end
 
@@ -40,8 +40,8 @@ Benchmark.ips do |x|
     ActiveSupport::JSON.encode(users.first)
   end
 
-  x.report("RailsJSONGemEncoder AR(one record)") do
-    ActiveSupport::JSON::Encoding.json_encoder = RailsJSONGemEncoder
+  x.report("CrustJSONEncoder AR(one record)") do
+    ActiveSupport::JSON::Encoding.json_encoder = CrustJSONEncoder
     ActiveSupport::JSON.encode(users.first)
   end
 
@@ -54,8 +54,8 @@ Benchmark.ips do |x|
     ActiveSupport::JSON.encode(users)
   end
 
-  x.report("RailsJSONGemEncoder AR(multiple records)") do
-    ActiveSupport::JSON::Encoding.json_encoder = RailsJSONGemEncoder
+  x.report("CrustJSONEncoder AR(multiple records)") do
+    ActiveSupport::JSON::Encoding.json_encoder = CrustJSONEncoder
     ActiveSupport::JSON.encode(users)
   end
 
