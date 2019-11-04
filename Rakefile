@@ -1,5 +1,6 @@
 require "bundler/gem_tasks"
 require "rake/testtask"
+require "thermite/tasks"
 
 Rake::TestTask.new(:test) do |t|
   t.libs << "test"
@@ -9,13 +10,15 @@ Rake::TestTask.new(:test) do |t|
   t.warning = true
 end
 
+Thermite::Tasks.new
+
 task :build_lib do
   system("cargo build --release", exception: true)
 end
 
-task performance: :build_lib do
+task performance: ["thermite:build"] do
   system("bundle exec ruby performance/benchmark.rb", exception: true)
 end
 
 task :default => :test
-task :test => [:build_lib]
+task :test => ['thermite:build']

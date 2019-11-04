@@ -4,6 +4,7 @@ PATH
     rails_json_gem_encoder (0.0.1)
       activesupport
       rutie
+      thermite
 
 GEM
   remote: https://rubygems.org/
@@ -24,11 +25,17 @@ GEM
     concurrent-ruby (1.1.5)
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
+    minitar (0.9)
     minitest (5.12.2)
     rake (13.0.0)
     rutie (0.0.4)
     sqlite3 (1.4.1)
+    thermite (0.13.0)
+      minitar (~> 0.5)
+      rake (>= 10)
+      tomlrb (~> 1.2)
     thread_safe (0.3.6)
+    tomlrb (1.2.8)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     zeitwerk (2.2.0)
