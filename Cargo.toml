@@ -4,6 +4,9 @@ version = "0.0.1"
 authors = ["y-yagi <yuuji.yaginuma@gmail.com>"]
 edition = "2018"
 
+[package.metadata.thermite]
+github_releases = true
+
 [lib]
 name = "native"
 crate-type = ["cdylib"]
