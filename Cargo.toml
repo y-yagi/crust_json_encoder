@@ -1,6 +1,6 @@
 [package]
 name = "crust_json_encoder"
-version = "0.0.1"
+version = "0.0.5"
 authors = ["Yuji Yaginuma <yuuji.yaginuma@gmail.com>"]
 edition = "2018"
 homepage = "https://github.com/y-yagi/crust_json_encoder"
