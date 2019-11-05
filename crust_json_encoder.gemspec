@@ -5,7 +5,7 @@ Gem::Specification.new do |spec|
   spec.name          = "crust_json_encoder"
   spec.authors       = ["Yuji Yaginuma"]
   spec.email         = ["yuuji.yaginuma@gmail.com"]
-  spec.version       = "0.0.5"
+  spec.version       = "0.0.6"
   spec.homepage      = "https://github.com/y-yagi/crust_json_encoder"
 
   spec.summary       = %q{CrustJSONEncoder is a JSON encoder for Ruby on Rails.}
