@@ -10,7 +10,7 @@ class CrustJSONEncoder < ActiveSupport::JSON::Encoding::JSONGemEncoder
     config.ruby_path("lib")
   end
 
-  Rutie.new(:native, lib_path: LIB_PATH, lib_prefix: nil).init "Init_native", __dir__
+  Rutie.new(:native, lib_path: LIB_PATH, lib_prefix: nil, lib_suffix: "so").init "Init_native", __dir__
 
   private
 
