@@ -37,17 +37,3 @@ pub extern "C" fn Init_native() {
         itself.def_self("escape", escape);
     });
 }
-
-#[cfg(test)]
-mod tests {
-    use crate::escape;
-
-    #[test]
-    fn contains_special_chars() {
-        let input = "this is the <string> & \u{2028} \u{2029}";
-        assert_eq!(
-            escape(input.to_string()),
-            "this is the \\u003cstring\\u003e \\u0026 \\u2028 \\u2029"
-        );
-    }
-}
