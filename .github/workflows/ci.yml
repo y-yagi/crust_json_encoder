@@ -28,3 +28,6 @@ jobs:
 
       - name: Run tests
         run: bundle exec rake
+
+      - name: Run clippy
+        run: cd ext/crust_json_encoder; cargo clippy -- -Dwarnings
