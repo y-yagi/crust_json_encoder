@@ -5,3 +5,4 @@ Gemfile.lock
 *.so
 *.gem
 mkmf.log
+tmp

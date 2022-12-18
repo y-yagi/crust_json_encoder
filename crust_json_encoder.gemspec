@@ -18,13 +18,13 @@ Gem::Specification.new do |spec|
   spec.extensions    = ["ext/Rakefile"]
 
   spec.add_dependency "activesupport"
-  spec.add_dependency "rutie"
-  spec.add_dependency "thermite"
+  spec.add_dependency "rb_sys"
+  spec.add_development_dependency "rake-compiler"
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "benchmark-ips"
-  spec.add_development_dependency "byebug"
+  spec.add_development_dependency "debug"
   spec.add_development_dependency "activerecord"
   spec.add_development_dependency "sqlite3"
 end
