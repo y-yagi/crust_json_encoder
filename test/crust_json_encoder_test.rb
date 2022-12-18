@@ -1,4 +1,4 @@
-require "test_helper"
+require_relative "./test_helper"
 
 class CrustJSONEncoderTest < Minitest::Test
   StringTests   = [[ "this is the <string>",     %("this is the \\u003cstring\\u003e")],

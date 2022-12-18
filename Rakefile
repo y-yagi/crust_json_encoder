@@ -1,24 +1,25 @@
-require "bundler/gem_tasks"
-require "rake/testtask"
-require "thermite/tasks"
+# frozen_string_literal: true
 
-Rake::TestTask.new(:test) do |t|
-  t.libs << "test"
-  t.libs << "lib"
-  t.test_files = FileList['test/**/*_test.rb']
+require "rake/testtask"
+require "rake/extensiontask"
+
+task default: :test
+
+Rake::ExtensionTask.new("crust_json_encoder") do |c|
+  c.lib_dir = "lib/crust_json_encoder"
+end
+
+Rake::TestTask.new do |t|
+  t.deps << :compile
+  t.test_files = FileList[File.expand_path("test/*_test.rb", __dir__)]
   t.verbose = true
   t.warning = true
 end
 
-Thermite::Tasks.new
-
-task :build_lib do
-  system("cargo build --release", exception: true)
+task console: :compile do
+  ruby "bin/console"
 end
 
-task performance: ["thermite:build"] do
-  system("bundle exec ruby performance/benchmark.rb", exception: true)
+task performance: :compile do
+  ruby "performance/benchmark.rb"
 end
-
-task :default => :test
-task :test => ['thermite:build']
