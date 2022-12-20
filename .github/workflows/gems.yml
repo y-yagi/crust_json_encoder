@@ -1,3 +1,4 @@
+name: Build gems
 on:
   workflow_dispatch:
 
