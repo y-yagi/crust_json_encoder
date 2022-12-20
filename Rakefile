@@ -23,3 +23,20 @@ end
 task performance: :compile do
   ruby "performance/benchmark.rb"
 end
+
+GEMSPEC = Bundler.load_gemspec("crust_json_encoder.gemspec")
+CROSS_PLATFORMS = %w[
+  x86_64-linux
+  x86_64-linux-musl
+  aarch64-linux
+  arm-linux
+  x86_64-darwin
+  arm64-darwin
+]
+
+Rake::ExtensionTask.new("crust_json_encoder", GEMSPEC) do |ext|
+  ext.lib_dir = "lib/crust_json_encoder"
+  ext.ext_dir = "ext/crust_json_encoder"
+  ext.cross_compile = true
+  ext.cross_platform = CROSS_PLATFORMS
+end

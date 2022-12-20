@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-  spec.extensions    = ["ext/Rakefile"]
+  spec.extensions    = ["ext/crust_json_encoder/extconf.rb"]
 
   spec.add_dependency "activesupport"
   spec.add_dependency "rb_sys"
