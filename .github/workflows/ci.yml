@@ -26,8 +26,11 @@ jobs:
           toolchain: stable
           override: true
 
-      - name: Run tests
-        run: bundle exec rake
-
       - name: Run clippy
         run: cd ext/crust_json_encoder; cargo clippy -- -Dwarnings
+
+      - name: Run rustfmt
+        run: cd ext/crust_json_encoder; cargo fmt --check
+
+      - name: Run tests
+        run: bundle exec rake

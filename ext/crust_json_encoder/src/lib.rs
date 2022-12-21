@@ -1,7 +1,4 @@
-use magnus::{
-    define_module,
-    function, Error,
-};
+use magnus::{define_module, function, Error};
 
 use phf::phf_map;
 
@@ -12,7 +9,6 @@ static JSON_ESCAPE: phf::Map<&'static str, &'static str> = phf_map! {
     "<"       => r"\u003c",
     "&"       => r"\u0026",
 };
-
 
 fn escape(input: String) -> String {
     let mut result = input;
