@@ -14,6 +14,14 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
 
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            tmp
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
