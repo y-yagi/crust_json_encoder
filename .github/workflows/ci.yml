@@ -28,12 +28,6 @@ jobs:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
 
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
-
       - name: Run clippy
         run: cd ext/crust_json_encoder; cargo clippy -- -Dwarnings
 
